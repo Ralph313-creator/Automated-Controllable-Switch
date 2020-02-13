@@ -1,0 +1,184 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.min.css')}}">
+
+</head>
+
+<body>
+  
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+  <a class="navbar-brand" href="#">Ralph IoT</a>
+  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+    
+    <form class="form-inline my-2 my-lg-0">
+      
+    </form>
+  </div>
+</nav>
+<div class="jumbotron">
+    <div class="container">
+      <h4 class="display-3">Controllable Automated Switch Using Raspberry Pi</h4>
+      <p>Welcome to the Ralph IoT</p>
+    </div>
+  </div>
+
+<div class="container">
+    <!-- Example row of columns -->
+    <div class="row">
+
+      <div class="col-md-3">
+        <h2>Switch 1:<span id='switch1_value' class="btn btn-info"></span></h2>
+        <p>
+          <button type="button" id="relay1_on" class="btn btn-warning">Switch ON</button>
+          <button type="button" id="relay1_off" class="btn btn-secondary">Switch OFF</button>
+        </p>
+      </div>
+
+      <div class="col-md-3">
+        <h2>Switch 2:<span id='switch2_value' class="btn btn-info"></span></h2>
+        <p>
+          <button type="button" id="relay2_on" class="btn btn-warning">Switch ON</button>
+          <button type="button" id="relay2_off" class="btn btn-secondary">Switch OFF</button>
+        </p>
+      </div>
+
+      <div class="col-md-3">
+        <h2>Switch 3:<span id='switch3_value' class="btn btn-info"></span></h2>
+        <p>
+          <button type="button" id="relay3_on" class="btn btn-warning">Switch ON</button>
+          <button type="button" id="relay3_off" class="btn btn-secondary">Switch OFF</button>
+        </p>
+      </div>
+
+      <div class="col-md-3">
+        <h2>Switch 4:<span id='switch4_value' class="btn btn-info"></span></h2>
+        <p>
+          <button type="button" id="relay4_on" class="btn btn-warning">Switch ON</button>
+          <button type="button" id="relay4_off" class="btn btn-secondary">Switch OFF</button>
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.4.1.min.js"><\/script>')</script>
+  <script src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
+  
+
+  <script>
+    //Attaches button click handlers.
+    $(document).ready(function() {
+      $('#relay1_on').click(function(){
+        console.log('Relay1 on!');
+        $.post('/relay/0');
+      });
+      $('#relay1_off').click(function(){
+        console.log('Relay1 off!');
+        $.post('/relay/1');
+      });
+
+      $('#relay2_on').click(function(){
+        console.log('Relay2 on!');
+        $.post('/relay/2');
+      });
+      $('#relay2_off').click(function(){
+        console.log('Relay2 off!');
+        $.post('/relay/3');
+      });
+
+      $('#relay3_on').click(function(){
+        console.log('Relay3 on!');
+        $.post('/relay/4');
+      });
+      $('#relay3_off').click(function(){
+        console.log('Relay3 off!');
+        $.post('/relay/5');
+      });
+
+      $('#relay4_on').click(function(){
+        console.log('Relay4 on!');
+        $.post('/relay/6');
+      });
+      $('#relay4_off').click(function(){
+        console.log('Relay4 off!');
+        $.post('/relay/7');
+      });
+    });
+    // Setup the switch server sent endpoint
+
+    function updateSwitch1(switch1Value) {
+      if(switch1Value==='1') {
+        $('#switch1_value').text('On');
+      }
+      else{
+        $('#switch1_value').text('Off');   
+      }
+    }
+
+    function updateSwitch2(switch2Value) {
+      if(switch2Value==='1') {
+        $('#switch2_value').text('On');
+      }
+      else{
+        $('#switch2_value').text('Off');
+      }
+    }
+
+    function updateSwitch3(switch3Value) {
+      if(switch3Value==='1') {
+        $('#switch3_value').text('On');
+      }
+      else{
+        $('#switch3_value').text('Off');   
+      }
+    }
+
+    function updateSwitch4(switch4Value) {
+      if(switch4Value==='1') {
+        $('#switch4_value').text('On');
+      }
+      else{
+        $('#switch4_value').text('Off');   
+      }
+    }
+
+
+    var switchSource = new EventSource("{{ url_for('switch1') }}");
+    switchSource.onmessage = function(e){
+      updateSwitch1(e.data);
+    }
+    updateSwitch1('{{ switch1 }}')
+
+    var switchSource = new EventSource("{{ url_for('switch2') }}");
+    switchSource.onmessage = function(e){
+      updateSwitch2(e.data);
+    }
+    updateSwitch2('{{ switch2 }}')
+
+    
+    var switchSource = new EventSource("{{ url_for('switch3') }}");
+    switchSource.onmessage = function(e){
+     updateSwitch3(e.data);
+    }
+    updateSwitch3('{{ switch3 }}')
+
+    var switchSource = new EventSource("{{ url_for('switch4') }}");
+    switchSource.onmessage = function(e){
+      updateSwitch4(e.data);
+    }
+    updateSwitch4('{{ switch4 }}')
+
+  </script>
+  
+</body>
+
+</html>
