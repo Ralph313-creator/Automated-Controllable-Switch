@@ -4,7 +4,7 @@ Instruction will be added soon or email: rap.ocba@gmail.com
 
 Prerequisites
 
-Everything in this tutorial is the end product of what we've learned so far about the Raspberry Pi and some things we learned with JavaScript and Python. If you get stuck anywhere, just email me or follow this simple steps to get started:
+Everything in this tutorial is the end product of what I've learned so far about the Raspberry Pi and some things i learned with JavaScript and Python. If you get stuck anywhere, just email me or follow this simple steps to get started:
 
     Headless Raspberry Pi
     https://www.easyprogramming.net/raspberrypi/headless_raspbery_pi.php
@@ -17,7 +17,7 @@ Everything in this tutorial is the end product of what we've learned so far abou
     
 Installation
 
-Since we are running RPi.GPIO from a virtual environment, we need to take one extra step after activating venv and install the package:
+Since we are running RPi.GPIO from a virtual environment, we need ato take one extr step after activating venv and install the package:
 
 pip3 install RPi.GPIO
 
@@ -25,7 +25,10 @@ We need to do this because our virtual environment can't access the globally ins
 Configurations
 
 
-Only a status of on or off are accepted. Anything else will return a simple error message. Open up the JavaScript console for more info.
+
+
+
+
 Authors
 
     Ralph Ocba 
