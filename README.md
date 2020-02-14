@@ -29,7 +29,7 @@ Configurations
 
 
 
-Authors
+Author
 
     Ralph Ocba 
 
