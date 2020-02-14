@@ -4,9 +4,9 @@ Instruction will be added soon or email: rap.ocba@gmail.com
 
 Prerequisites
 
-Everything in this tutorial is the end product of what we've learned so far about the Raspberry Pi and some things we learned with JavaScript and jQuery. If you get stuck anywhere, take a look at these tutorials:
+Everything in this tutorial is the end product of what we've learned so far about the Raspberry Pi and some things we learned with JavaScript and Python. If you get stuck anywhere, just email me or follow this simple steps to get started:
 
-    Headless Raspberry Pi
+    Headless Raspberry P
     https://www.easyprogramming.net/raspberrypi/headless_raspbery_pi.php
     
     Using the RPi.GPIO library to turn on an LED
