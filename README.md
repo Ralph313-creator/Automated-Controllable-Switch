@@ -10,6 +10,7 @@ Everything in this tutorial is the end product of what we've learned so far abou
     https://www.easyprogramming.net/raspberrypi/headless_raspbery_pi.php
     
     Using the RPi.GPIO library to turn on an LED
+    https://github.com/Ralph313-creator/Automated-Switch/blob/master/test.py
     
     Running a Flask App on your Pi
     https://www.easyprogramming.net/raspberrypi/pi_flask_app_server.php
